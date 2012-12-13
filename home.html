@@ -1,11 +1,20 @@
 <html>
   <head>
     <title>{{ title }}</title>
+    <style>
+    img {
+        margin:5px;
+        border:2px solid black;
+        vertical-align:middle;
+        width:75px;
+        height:75px;
+      }
+    </style>
   </head>
   <body>
     <ul>
       {% for dir in dirs %}
-        <li><a target="_blank" href={{ "http://gif-picker.herokuapp.com/" + dir }}>{{ dir }}</a></li>
+        <a target="_blank" href={{ "http://gif-picker.herokuapp.com/" + dir }}><img src={{  "http://gif-picker.herokuapp.com/" + dir }}/></a>
       {% end %}
     </ul>
   </body>
