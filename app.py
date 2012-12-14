@@ -3,6 +3,9 @@ import tornado.web
 import tornado.template
 import os
 
+def getNameFromPath(path):
+	return path.split("/")[-1]
+
 ds = []
 
 for root, dirs, files in os.walk('static/gifs/'):
@@ -11,7 +14,7 @@ for root, dirs, files in os.walk('static/gifs/'):
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write(loader.load("dir.html").generate(title="Home", dirs=ds))
+        self.write(loader.load("dir.html").generate(title="Home", dirs=ds, get=getNameFromPath))
 
 class GifHandler(tornado.web.RequestHandler):
     def get(self, slug):
@@ -33,3 +36,5 @@ if __name__ == "__main__":
 	loader = tornado.template.Loader("./")
 	application.listen(port)
 	tornado.ioloop.IOLoop.instance().start()
+
+
