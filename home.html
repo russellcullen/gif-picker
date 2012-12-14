@@ -14,7 +14,9 @@
   <body>
     <ul>
       {% for dir in dirs %}
-        <a target="_blank" href={{ "http://gif-picker.herokuapp.com/" + dir }}><img src={{  "http://gif-picker.herokuapp.com/" + dir }}/></a>
+        {% block dir %}
+          <a target="_blank" href={{ "http://gif-picker.herokuapp.com/" + dir }}><img src={{  "http://gif-picker.herokuapp.com/" + dir }}/></a>
+        {% end %}
       {% end %}
     </ul>
   </body>
