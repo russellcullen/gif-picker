@@ -13,6 +13,7 @@ class MainHandler(tornado.web.RequestHandler):
 			if root == 'static/gifs/':
 				continue
 			ds.append({'name':getNameFromPath(root), 'gifs':[os.path.join(root, f) for f in files]})
+		ds.sort(key=lambda f: f['name'])
 		self.write(loader.load("home.html").generate(title="Home", dirs=ds))
 
 settings = {'static_path': os.path.join(os.path.dirname(__file__), "static")}
