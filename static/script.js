@@ -8,8 +8,6 @@ $(document).ready(function() {
 				copy: function() { return $(this).attr('src')},
 				afterCopy: function(){}
 			});
-		}});
-	$('.gif').click(function(){
-		console.log($(this).attr('src'))
-	})
+		}
+	});
 });
