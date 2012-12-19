@@ -6,29 +6,19 @@ import os
 def getNameFromPath(path):
 	return path.split("/")[-1]
 
-ds = []
-
-for root, dirs, files in os.walk('static/gifs/'):
-	for d in dirs:
-		ds.append(os.path.join(root, d))
-
 class MainHandler(tornado.web.RequestHandler):
-    def get(self):
-        self.write(loader.load("dir.html").generate(title="Home", dirs=ds, get=getNameFromPath))
-
-class GifHandler(tornado.web.RequestHandler):
-    def get(self, slug):
-    	g = []
-    	for root, dirs, files in os.walk(slug):
-    		for f in files:
-    			g.append(os.path.join(root,f))
-        self.write(loader.load("home.html").generate(title="Home", dirs=g))
+	def get(self):
+		ds = []
+		for root, dirs, files in os.walk('static/gifs/'):
+			if root == 'static/gifs/':
+				continue
+			ds.append({'name':getNameFromPath(root), 'gifs':[os.path.join(root, f) for f in files]})
+		self.write(loader.load("home.html").generate(title="Home", dirs=ds))
 
 settings = {'static_path': os.path.join(os.path.dirname(__file__), "static")}
 
 application = tornado.web.Application([
-	(r"/", MainHandler),
-	(r"/dir/(.*)", GifHandler)
+	(r"/", MainHandler)
 ], **settings)
 
 if __name__ == "__main__":

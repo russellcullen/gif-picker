@@ -1,11 +1,15 @@
 $(document).ready(function() {
-	var btn
-	$('div.gif').zclip({
-		path:'/static/ZeroClipboard.swf',
-		copy: function() { return $(this).children('img')[0].src},
-		afterCopy: function(){}
-	});
-	$('div.gif').click(function() {
-		console.log($(this).children('img')[0].src);
-	});
+	$("#menu").accordion({	
+		collapsible: true, 
+		active: false,
+		activate: function(event, ui) {
+			$('.gif').zclip({
+				path:'/static/ZeroClipboard.swf',
+				copy: function() { return $(this).attr('src')},
+				afterCopy: function(){}
+			});
+		}});
+	$('.gif').click(function(){
+		console.log($(this).attr('src'))
+	})
 });
