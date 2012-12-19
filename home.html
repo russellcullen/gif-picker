@@ -1,6 +1,8 @@
 <html>
   <head>
     <title>{{ title }}</title>
+    <script type="text/javascript" src="/static/jquery.js"></script>
+    <script type="text/javascript" src="/static/zclip.js"></script>
     <style>
     img {
         margin:5px;
@@ -9,15 +11,19 @@
         width:75px;
         height:75px;
       }
+      div {
+        float: left;
+      }
     </style>
   </head>
   <body>
     <ul>
       {% for dir in dirs %}
         {% block dir %}
-          <a href={{ "http://gif-picker.herokuapp.com/" + dir }}><img src={{  "http://gif-picker.herokuapp.com/" + dir }}/></a>
+          <div class="gif"><img src={{  "/" + dir }}/></div>
         {% end %}
       {% end %}
     </ul>
+    <script type="text/javascript" src="/static/script.js"></script>
   </body>
 </html>
