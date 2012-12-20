@@ -14,7 +14,7 @@
         <h3>{{dir['name']}}</h3>
         <div>
           {% for gif in dir['gifs'] %}
-            <img class="gif" src={{  "http://gif-picker.herokuapp.com/" + gif }}/>
+            <img class="gif" alt={{  "http://gif-picker.herokuapp.com/" + gif }} src={{  "http://gif-picker.herokuapp.com/" + gif }}/>
           {% end %}
         </div>
       {% end %}
