@@ -4,13 +4,14 @@
     "manifest_version": 2,
     "description": "Pick a gif!",
     "browser_action": {
-        "default_icon": "icon16.png",
+        "default_icon": "gif48.png",
         "default_popup": "popup.html"
     },
     "permissions": [
         "http://gif-picker.herokuapp.com/"
     ],
-    "icons": { "16": "icon16.png",
-           "48": "icon48.png",
-          "128": "icon128.png" }
+    "icons": { "16": "gif16.png",
+           "48": "gif48.png",
+          "128": "gif128.png" 
+    }
 }
