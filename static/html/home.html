@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' type='text/css' href='http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css'/>
+    <link rel='stylesheet' type='text/css' href='/static/css/stylesheet.css'/>
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/static/js/zclip.js"></script>
+    <script type="text/javascript" src="/static/js/toast.js"></script>
+  </head>
+  <body>
+    <div id="menu">
+      {% for dir in dirs %}
+        <h3>{{dir['name']}}</h3>
+        <div>
+          {% for gif in dir['gifs'] %}
+            <img class="gif" src={{  "http://gif-picker.herokuapp.com/" + gif }}/>
+          {% end %}
+        </div>
+      {% end %}
+    </div>
+    <script type="text/javascript" src="/static/js/script.js"></script>
+  </body>
+</html>
