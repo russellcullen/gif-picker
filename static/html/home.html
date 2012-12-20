@@ -7,6 +7,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/static/js/zclip.min.js"></script>
     <script type="text/javascript" src="/static/js/toast.min.js"></script>
+    <script type="text/javascript" src="/static/js/lazyload.min.js"></script>
   </head>
   <body>
     <div id="menu">
@@ -14,7 +15,8 @@
         <h3>{{dir['name']}}</h3>
         <div>
           {% for gif in dir['gifs'] %}
-            <img class="gif" alt={{  "http://gif-picker.herokuapp.com/" + gif }} src={{  "http://gif-picker.herokuapp.com/" + gif }}/>
+            <img class="gif" alt={{  "http://gif-picker.herokuapp.com/" + gif }} src="/static/img/grey.gif" 
+              data-original={{  "http://gif-picker.herokuapp.com/" + gif }}/>
           {% end %}
         </div>
       {% end %}
