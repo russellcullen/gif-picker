@@ -3,10 +3,9 @@ img {
   border:2px solid black;
   width:75px;
   height:75px;
-  float: left;
 }
 
-.toast{
+.toast {
   /* border properties */
   border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; border: 2px solid #CCCCCC;
   /* Aesthetics */
