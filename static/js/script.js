@@ -11,12 +11,9 @@ $(document).ready(function() {
 					path:'/static/js/ZeroClipboard.swf',
 					copy: function() { return $(this).attr('data-original')},
 					afterCopy: function() {
-						$.toast({
-					        message:"Copied!",
-					        displayTime:1000,
-					        inTime:100,
-					        outTime:200
-					    });
+						$('.toast').fadeIn(200);
+						$('.toast').delay(500);
+						$('.toast').fadeOut(600);
 					}
 				});
 			}
